@@ -1,0 +1,24 @@
+set AUTOBUSES := a1 a2 a3 a4 a5;
+
+set FRANJAS := s1 s2 s3;
+
+param Precio := 0.5;
+param Penalizacion := 2.0;
+
+param Distancia :=
+a1 10.5
+a2 25.3
+a3 8.7
+a4 42.1
+a5 15.9
+;
+
+param Pasajeros :=
+a1 40
+a2 25
+a3 60
+a4 35
+a5 18
+;
+
+end;
