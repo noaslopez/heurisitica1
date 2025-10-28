@@ -64,10 +64,12 @@ def generate_dat(data, output_file):
         f.write("end;\n")
 
 def solve_with_glpk(dat_file):
-    s = subprocess.check_call(f"glpsol -m parte-2-1.mod -d {dat_file}",
+    # glpsol -m model.mod -d data.dat -o output.txt según el manual del profe 
+    s = subprocess.check_call(f"glpsol -m parte-2-1.mod -d {dat_file} -o output.out",
                               shell=True,
                               stdout=subprocess.DEVNULL,
                               stderr=subprocess.STDOUT)
+    
 def print_result(output_file):
     #unfeasible
     #unfound
@@ -88,7 +90,7 @@ def main():
     generate_dat(data, dat_file)
     solve_with_glpk(dat_file)
 
-    # print_result('output.out')
+    # print_result('output.txt')
 
 if __name__ == "__main__":
     main()

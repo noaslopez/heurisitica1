@@ -276,10 +276,15 @@ $sum_(i = 1)^m x_(i j k) = 1$$$$forall med j med : med 1 lt.eq j lt.eq u$ , $$$f
 )[
   $x_(i j k) lt.eq med o_(k j) - 1$ $med med med med med med forall med i med : med 1 lt.eq j lt.eq m$ , $forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
 ]
-
 #block[
   #set enum(numbering: "1.", start: 4)
-  + Definición del comportamiento de la variable de decisión $y_(i j)$ . Dicha variable determina si #strong[para un par de autobuses ambos tienen asignadas las mismas franjas horarias] (que deben estar en talleres diferentes como se define en la primera restricción. Para ello, su #strong[definición se realizará de manera muy similar a la definición de un AND lógico];. En el caso de que ambos la tengan asignada , la variable de decisión tomará el valor uno, en cualquier otro caso, la variable tomará el valor 0.
+  + Definición del comportamiento de la variable de decisión $y_(i j)$ . Dicha variable determina si 
+  #strong[para un par de autobuses ambos tienen asignadas las mismas franjas horarias] (que deben estar en talleres 
+  diferentes como se define en la primera restricción. Para ello, su #strong[definición se realizará de manera muy 
+  similar a la definición de un AND lógico], en el que acotamos inferiormente el valor de $y_(i j)$ mediante las restricciones 4.1 y 4.2
+  en los que forzamos a la variable a tomar el valor 0 en caso de que ambas no estén asignadas a la misma franja, y superiormente mediante 4.3
+  en el caso de que ambas estén asignadas a la misma franja. Por tanto, en el caso de que ambos la tengan asignada , la 
+  variable de decisión tomará el valor 1, en cualquier otro caso, la variable tomará el valor 0.
   #align(center)[
     #block[
       #set enum(numbering: "4.1.", start: 1)
