@@ -1,4 +1,4 @@
-#!env python3
+#!/usr/bin/env python3 
 import re
 import sys
 import os
@@ -64,15 +64,14 @@ def generate_dat(data, output_file):
         f.write("end;\n")
 
 def solve_with_glpk(dat_file):
-    s = subprocess.check_call(f"glpsol -m problema1.mod -d {dat_file}",
+    s = subprocess.check_call(f"glpsol -m parte-2-1.mod -d {dat_file}",
                               shell=True,
                               stdout=subprocess.DEVNULL,
                               stderr=subprocess.STDOUT)
 def print_result(output_file):
     #unfeasible
     #unfound
-
-ass
+    pass
 
 def main():
     # Check if correct number of arguments provided

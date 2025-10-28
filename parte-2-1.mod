@@ -6,7 +6,7 @@ set FRANJAS;
 param Precio;
 param Penalizacion;
 param Distancia{AUTOBUSES};
-param Pasajeros{FRANJAS};
+param Pasajeros{AUTOBUSES};
 
 /* Variable de decision */
 var x{AUTOBUSES, FRANJAS}, binary;
