@@ -255,8 +255,7 @@ Una vez definidas nuestras variables de decisión, definimos las restricciones d
 
 + #strong[Un autobús solo debe estar asignado a una única franja horaria en un único taller.]
 #align(center)[
-$sum_(j = 1)^u sum_(k = 1)^n x_(i j k) = 1$   
- $$$forall med i med med 1 lt.eq i lt.eq m$
+$sum_(j = 1)^u sum_(k = 1)^n x_(i j k) = 1$   ,   $$$forall med i med med 1 lt.eq i lt.eq m$
 ]
 
 #block[
@@ -264,7 +263,7 @@ $sum_(j = 1)^u sum_(k = 1)^n x_(i j k) = 1$
   + #strong[Cada franja horaria de un taller debe tener como máximo un autobús asignado.]
 ]
 #align(center)[
-$sum_(i = 1)^m x_(i j k) <= 1$$$$forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
+$sum_(i = 1)^m x_(i j k) <= 1  ,   $$$$forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
 ]
 
 #block[
