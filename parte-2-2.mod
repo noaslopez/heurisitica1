@@ -20,7 +20,7 @@ s.t. Asignacion_bus {i in AUTOBUSES}:
     sum{j in TALLERES, k in FRANJAS} x[i,j,k] = 1;
 
 s.t. Franja_unica {j in TALLERES, k in FRANJAS}: 
-    sum{i in AUTOBUSES} x[i,j,k] = 1;
+    sum{i in AUTOBUSES} x[i,j,k] <= 1;
 
 s.t. Franja_reservada {i in AUTOBUSES, j in TALLERES, k in FRANJAS}: 
     x[i,j,k] <= 1 - o[k,j];

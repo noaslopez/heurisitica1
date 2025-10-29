@@ -255,36 +255,32 @@ Una vez definidas nuestras variables de decisión, definimos las restricciones d
 
 + #strong[Un autobús solo debe estar asignado a una única franja horaria en un único taller.]
 #align(center)[
-$sum_(j = 1)^u sum_(k = 1)^n x_(i j k) = 1$ $$$forall med i med med 1 lt.eq i lt.eq m$
+$sum_(j = 1)^u sum_(k = 1)^n x_(i j k) = 1$   
+ $$$forall med i med med 1 lt.eq i lt.eq m$
 ]
 
 #block[
   #set enum(numbering: "1.", start: 2)
-  + #strong[Cada franja horaria de un taller debe tener un autobús asignado.]
+  + #strong[Cada franja horaria de un taller debe tener como máximo un autobús asignado.]
 ]
 #align(center)[
-$sum_(i = 1)^m x_(i j k) = 1$$$$forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
+$sum_(i = 1)^m x_(i j k) <= 1$$$$forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
 ]
 
 #block[
   #set enum(numbering: "1.", start: 3)
   + #strong[Una franja horaria de un taller no puede ser asignada a un autobús en caso de ya estar reservada para otro uso.]
 ]
-
-#quote(
-  block: true,
-)[
-  $x_(i j k) lt.eq med o_(k j) - 1$ $med med med med med med forall med i med : med 1 lt.eq j lt.eq m$ , $forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
+#align(center)[
+  #quote(
+    block: true,
+  )[
+    $x_(i j k) lt.eq med 1- o_(k j)$ $med med med med med med forall med i med : med 1 lt.eq j lt.eq m$ , $forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
+  ]
 ]
 #block[
   #set enum(numbering: "1.", start: 4)
-  + Definición del comportamiento de la variable de decisión $y_(i j)$ . Dicha variable determina si 
-  #strong[para un par de autobuses ambos tienen asignadas las mismas franjas horarias] (que deben estar en talleres 
-  diferentes como se define en la primera restricción. Para ello, su #strong[definición se realizará de manera muy 
-  similar a la definición de un AND lógico], en el que acotamos inferiormente el valor de $y_(i j)$ mediante las restricciones 4.1 y 4.2
-  en los que forzamos a la variable a tomar el valor 0 en caso de que ambas no estén asignadas a la misma franja, y superiormente mediante 4.3
-  en el caso de que ambas estén asignadas a la misma franja. Por tanto, en el caso de que ambos la tengan asignada , la 
-  variable de decisión tomará el valor 1, en cualquier otro caso, la variable tomará el valor 0.
+  + La variable $y_(i j)$ determina si #strong[para un par de autobuses ambos tienen asignadas las mismas franjas horarias] (que deben estar en talleres diferentes como se define en la primera restricción. Para ello, su #strong[definición se realizará de manera muy similar a la definición de un AND lógico], en el que acotamos inferiormente el valor de $y_(i j)$ mediante las restricciones 4.1 y 4.2 en los que forzamos a la variable a tomar el valor 0 en caso de que ambas no estén asignadas a la misma franja, y superiormente mediante 4.3 en el caso de que ambas estén asignadas a la misma franja. Por tanto, en el caso de que ambos la tengan asignada , la variable de decisión tomará el valor 1, en cualquier otro caso, la variable tomará el valor 0.
   #align(center)[
     #block[
       #set enum(numbering: "4.1.", start: 1)
@@ -318,3 +314,68 @@ Dadas las restricciones especificadas, podemos definir nuestra función objetivo
 En el que mediante el sumatorio podemos analizar todos los pares de autobuses de la empresa de transporte sin repeticiones (ya que el segundo sumatorio garantiza que los pares que ya han sido sumados con anterioridad no se vuelvan a tener en cuenta) y, dado que la variable de decisión $y_(i j)$ es binaria y obtiene el valor 1 sólo si dos autobuses tienen asignada la misma franja horaria obtendremos el número total de clientes cuyos autobuses reservados simultáneamente tienen asignada la misma franja horaria para su revisión de averías en el taller.
 
 = Análisis de resultados. <análisis-de-resultados.>
+Para analizar los resultados obtenidos, primero relizaremos algunos casos de test que comprueban el correcto funcionamiento de nuestros modelos, también comprobaremos la variación de los modelos con respecto al número de variables y compararemos ambos modelos entre ellos. 
+
+== Pruebas de funcionamiento para el problema 2.2.1.
+En primer lugar, hemos realizado dos tests muy sencillos, cuyos resultados se pueden determinar a simple vista y que nos permiten comprobar algunas cualidades importantes del modelo diseñado:
+  #set enum(numbering: "1.", start: 1)
+  + En caso de haber más autobuses que franjas, algunos autobuses quedarán sin asignar, pues nos encontramos ante un problema de transporte y los valores n y m no tienen por qué ser iguales. 
+  + Del mismo modo, en caso de haber más franjas que autobuses, algunas quedarán sin asignar.
+  + Las soluciones óptimas son las esperadas. 
+
+*Prueba 1:* Tomará los siguientes valores:
+- n = 1 , m = 2 (1 sola franja y dos autobuses)
+- $k^d$ = 1 , $k^p$ = 10
+- A1 : el autobús se encuentra a 5km del taller y tiene 100 pasajeros
+- A2 : el autobús se encuentra a 10km del taller y tiene 2 pasajeros
+Una vez pasamos el archivo input con los datos indicados por el solver obtenemos los siguientes resultados:
+- _Objective:  Total_Cost = 25 (MINimum)_
+- _Rows:       4_
+- _Número de variables de decisión (columns):    2_
+- _x[a1,s1]=1_ ,, _x[a2,s1]=0_
+Como podemos observar, ante un problema trivial se cumple que el valor de la función objetivo es correcto (pués el coste de asignación es $5·10$ y la penalización por no asignar a2 es $2·10$ que en total suman 25). Además comprobamos que ante el caso $n<m$, los resultados son los esperados, hay autobuses que se quedan sin asignar. 
+\
+*Prueba 2* Del mismo modo, con un segundo test trivial en el que se evalua precisamente el caso contrario (tenemos más franjas que autobuses) con los siguientes datos:
+- n = 3 , m = 2 (3 franjas y dos autobuses)
+- $k^d$ = 1 , $k^p$ = 10
+- A1 : el autobús se encuentra a 5km del taller y tiene 100 pasajeros
+- A2 : el autobús se encuentra a 10km del taller y tiene 2 pasajeros
+Los resultados obtenidos son:
+- _Objective:  Total_Cost = 15 (MINimum)_
+- _Rows:       6_
+- _Número de variables de decisión (columns):    6_ 
+- x[a1,s1]=1 , x[a1,s2]=0 , x[a1,s3]=0 ,, x[a2,s1]=0 , x[a2,s2]=1 , x[a2,s3]=0
+
+Como podemos ver, el valor de la función objetivo es  el esperado (solo se tienen en cuenta los costes de transporte ya que no hay penalizaciones de no asignación), ningún autobus es asignado a la misma franja y queda una franja sin asignar. 
+\
+Pese al caracter trivial de los tests, nos permiten entender correctamente el funcionamiento del modelo y confirmar aspectos claves del diseño realizado.
+
+\
+No obstante, para estudiar la variación del número de restricciones y variables de decisión en base al número de franjas y de autobuses realizaremos dos tests más complejos, y con ellos,trataremos de encontrar patrones.
+\
+*Prueba 3:* Este test aumentara significativamente el número de autobuses y franjas, y tomará parámetros con valores más variopintos, como son (representados como en el fichero de entrada para mayor simplicidad):
+
+10 15
+
+25 63
+
+5, 15, 25, 35, 45, 55, 65, 75, 85, 95, 105, 115, 125, 135, 145
+
+10, 25, 8, 40, 15, 30, 5, 35, 12, 45, 20, 50, 18, 38, 22
+\
+Los resultados obtenidos en este caso son:
+- _Objective:  Total_Cost = 18569 (MINimum)_
+- _Número de restricciones (rows):       26_
+- _Número de variables de decisión (columns):    150_
+- Asignaciones realizadas: [a1,s4] , [a2, s2] , [a4,s1], [a6, s3] , [a8, s6] , [a10, s5] , [a12, s7] 
+En este caso ocurre un comportamiento que cabe la pena mencionar, *dado que debemos contemplar el caso en que $n < m$ y viceversa, también damos lugar a que en caso de que el coste de asignación sea mayor que la penalización queden franjas vacias y autobuses sin asignar*. Un ejemplo claro en este problema concreto es el del autobús _$a_(11)$_ , cuyo coste de asignación es $105·25=2625$ mientras que la penalización de no asignación es $20·63=1260$. De hecho, en este caso pese a haber 10 franjas disponibles, solo se realiza la asignación de 7 autobuses ya que para los demás la penalización de no asignación es considerablemente menor que el coste de asignación. 
+\
+Ya una vez realizados estos tres casos de estudio, podemos realizar algunas conculsiones interesantes acerca del coportamiento de las variables de decisión y las restricciones:
+#set enum(numbering: "1.", start: 1)
++ *El número de variables de decisión es _n·m_* , cosa que esperabamos dado que las variables de restricción representan una matriz nxm cuyos valores representan las asignaciones realizadas.
++ *El número de restricciones a nuestro problema viene dado por a _n+m+1_*, teniendo complejidad lineal O(n+m+1). Esto, también era un resultado esperado, pues definimos una restricción que restringe la asignación única por cada franja y cada bus, más la restricción de definción del dominio (establecemos que las variables de decisión sean binarias). 
+Estos resultados son interesantes, ya que pese a que el numero de variables de decisión incrementa como un producto de ambas, las restricciones aumentan como una 
+suma (en comparación crecen muy lentamente).Esto es algo muy positivo, dado que *la complejidad de un problema no está tan afectada por el número de variables como por el número de restricciones* y por tanto, en nuestro problema conseguimos mantener un número de restricciones moderado pese al número de variables de decisión. Además, si nos fijamos en los tres casos presentados, observamos que para valores pequeños de n y de m el número de restricciones es mayor o igual al número de variables de decisión, pero a medida que el numero de franjas y autobuses crece, esta situación se mitiga, lo que *demuestra además que el modelo tiene una buena capacidad de escalabilidad de cara a casos complejos* con un alto número de autobuses y franjas, y por tanto de variables de decisión.
+
+== Pruebas de funcionamiento para el problema 2.2.2.
+hola
