@@ -1,14 +1,14 @@
 Problem:    parte
 Rows:       151
 Columns:    76 (76 integer, 76 binary)
-Non-zeros:  491
+Non-zeros:  492
 Status:     INTEGER OPTIMAL
-Objective:  Pasajeros_afectados = 0 (MINimum)
+Objective:  Pasajeros_afectados = 2 (MINimum)
 
    No.   Row name        Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
      1 Pasajeros_afectados
-                                   0                             
+                                   2                             
      2 Asignacion_bus[a1]
                                    1             1             = 
      3 Asignacion_bus[a2]
