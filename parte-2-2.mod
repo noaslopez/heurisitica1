@@ -23,7 +23,7 @@ s.t. Franja_unica {j in TALLERES, k in FRANJAS}:
     sum{i in AUTOBUSES} x[i,j,k] <= 1;
 
 s.t. Franja_reservada {i in AUTOBUSES, j in TALLERES, k in FRANJAS}: 
-    x[i,j,k] <= 1 - o[k,j];
+    x[i,j,k] <= o[k,j];
 
 s.t. Definicion_y_i {i in AUTOBUSES, t in AUTOBUSES, k in FRANJAS: i<t}: 
     y[i,t] <= sum{j in TALLERES} x[i,j,k];

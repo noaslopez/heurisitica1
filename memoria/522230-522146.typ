@@ -227,8 +227,8 @@ Y el siguiente parámetro $o_(i j)$ que define la disponibilidad de una franja $
 #align(center)[
   $
   o_(i,j) <= cases(
-    1 quad "si s_i de t_j está ocupada",
-    0 quad "en cualquier otro caso"
+    0 quad "si s_i de t_j está ocupada",
+    1 quad "si la franja está disponible para su uso"
   ) med med , med med forall i in {1 med , . . . med , med n} med med forall j in {1 med , . . . med , med u}$
 ]
 
@@ -268,13 +268,13 @@ $sum_(i = 1)^m x_(i j k) <= 1  ,   $$$$forall med j med : med 1 lt.eq j lt.eq u$
 
 #block[
   #set enum(numbering: "1.", start: 3)
-  + #strong[Una franja horaria de un taller no puede ser asignada a un autobús en caso de ya estar reservada para otro uso.]
+  + #strong[Una franja horaria de un taller no puede ser asignada a un autobús en caso de ya estar reservada para otro uso.] Por tanto, en caso de que $o_(i,j)$ sea 1, podemos o no asignar la franja, en caso de que sea 0, debemos forzar a que la franja no se asigne.
 ]
 #align(center)[
   #quote(
     block: true,
   )[
-    $x_(i j k) lt.eq med 1- o_(k j)$ $med med med med med med forall med i med : med 1 lt.eq j lt.eq m$ , $forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
+    $x_(i j k) lt.eq med o_(k j)$ $med med med med med med forall med i med : med 1 lt.eq j lt.eq m$ , $forall med j med : med 1 lt.eq j lt.eq u$ , $$$forall med k med : med 1 lt.eq k lt.eq n$
   ]
 ]
 #block[
