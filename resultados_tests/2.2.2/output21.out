@@ -1,0 +1,402 @@
+Problem:    parte
+Rows:       151
+Columns:    76 (76 integer, 76 binary)
+Non-zeros:  491
+Status:     INTEGER OPTIMAL
+Objective:  Pasajeros_afectados = 0 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 Pasajeros_afectados
+                                   0                             
+     2 Asignacion_bus[a1]
+                                   1             1             = 
+     3 Asignacion_bus[a2]
+                                   1             1             = 
+     4 Asignacion_bus[a3]
+                                   1             1             = 
+     5 Asignacion_bus[a4]
+                                   1             1             = 
+     6 Franja_unica[t1,f1]
+                                   1                           1 
+     7 Franja_unica[t1,f2]
+                                   0                           1 
+     8 Franja_unica[t1,f3]
+                                   0                           1 
+     9 Franja_unica[t1,f4]
+                                   1                           1 
+    10 Franja_unica[t1,f5]
+                                   0                           1 
+    11 Franja_unica[t2,f1]
+                                   1                           1 
+    12 Franja_unica[t2,f2]
+                                   0                           1 
+    13 Franja_unica[t2,f3]
+                                   0                           1 
+    14 Franja_unica[t2,f4]
+                                   0                           1 
+    15 Franja_unica[t2,f5]
+                                   1                           1 
+    16 Franja_reservada[a1,t1,f1]
+                                   1                           1 
+    17 Franja_reservada[a1,t1,f2]
+                                   0                          -0 
+    18 Franja_reservada[a1,t1,f3]
+                                   0                          -0 
+    19 Franja_reservada[a1,t1,f4]
+                                   0                           1 
+    20 Franja_reservada[a1,t1,f5]
+                                   0                           1 
+    21 Franja_reservada[a1,t2,f1]
+                                   0                           1 
+    22 Franja_reservada[a1,t2,f2]
+                                   0                          -0 
+    23 Franja_reservada[a1,t2,f3]
+                                   0                          -0 
+    24 Franja_reservada[a1,t2,f4]
+                                   0                           1 
+    25 Franja_reservada[a1,t2,f5]
+                                   0                           1 
+    26 Franja_reservada[a2,t1,f1]
+                                   0                           1 
+    27 Franja_reservada[a2,t1,f2]
+                                   0                          -0 
+    28 Franja_reservada[a2,t1,f3]
+                                   0                          -0 
+    29 Franja_reservada[a2,t1,f4]
+                                   1                           1 
+    30 Franja_reservada[a2,t1,f5]
+                                   0                           1 
+    31 Franja_reservada[a2,t2,f1]
+                                   0                           1 
+    32 Franja_reservada[a2,t2,f2]
+                                   0                          -0 
+    33 Franja_reservada[a2,t2,f3]
+                                   0                          -0 
+    34 Franja_reservada[a2,t2,f4]
+                                   0                           1 
+    35 Franja_reservada[a2,t2,f5]
+                                   0                           1 
+    36 Franja_reservada[a3,t1,f1]
+                                   0                           1 
+    37 Franja_reservada[a3,t1,f2]
+                                   0                          -0 
+    38 Franja_reservada[a3,t1,f3]
+                                   0                          -0 
+    39 Franja_reservada[a3,t1,f4]
+                                   0                           1 
+    40 Franja_reservada[a3,t1,f5]
+                                   0                           1 
+    41 Franja_reservada[a3,t2,f1]
+                                   0                           1 
+    42 Franja_reservada[a3,t2,f2]
+                                   0                          -0 
+    43 Franja_reservada[a3,t2,f3]
+                                   0                          -0 
+    44 Franja_reservada[a3,t2,f4]
+                                   0                           1 
+    45 Franja_reservada[a3,t2,f5]
+                                   1                           1 
+    46 Franja_reservada[a4,t1,f1]
+                                   0                           1 
+    47 Franja_reservada[a4,t1,f2]
+                                   0                          -0 
+    48 Franja_reservada[a4,t1,f3]
+                                   0                          -0 
+    49 Franja_reservada[a4,t1,f4]
+                                   0                           1 
+    50 Franja_reservada[a4,t1,f5]
+                                   0                           1 
+    51 Franja_reservada[a4,t2,f1]
+                                   1                           1 
+    52 Franja_reservada[a4,t2,f2]
+                                   0                          -0 
+    53 Franja_reservada[a4,t2,f3]
+                                   0                          -0 
+    54 Franja_reservada[a4,t2,f4]
+                                   0                           1 
+    55 Franja_reservada[a4,t2,f5]
+                                   0                           1 
+    56 Definicion_y[a1,a2]
+                                   0            -0             = 
+    57 Definicion_y[a1,a3]
+                                   0            -0             = 
+    58 Definicion_y[a1,a4]
+                                   0            -0             = 
+    59 Definicion_y[a2,a3]
+                                   0            -0             = 
+    60 Definicion_y[a2,a4]
+                                   0            -0             = 
+    61 Definicion_y[a3,a4]
+                                   0            -0             = 
+    62 Definicion_z1[a1,a2,f1]
+                                  -1                          -0 
+    63 Definicion_z1[a1,a2,f2]
+                                   0                          -0 
+    64 Definicion_z1[a1,a2,f3]
+                                   0                          -0 
+    65 Definicion_z1[a1,a2,f4]
+                                   0                          -0 
+    66 Definicion_z1[a1,a2,f5]
+                                   0                          -0 
+    67 Definicion_z1[a1,a3,f1]
+                                  -1                          -0 
+    68 Definicion_z1[a1,a3,f2]
+                                   0                          -0 
+    69 Definicion_z1[a1,a3,f3]
+                                   0                          -0 
+    70 Definicion_z1[a1,a3,f4]
+                                   0                          -0 
+    71 Definicion_z1[a1,a3,f5]
+                                   0                          -0 
+    72 Definicion_z1[a1,a4,f1]
+                                   0                          -0 
+    73 Definicion_z1[a1,a4,f2]
+                                   0                          -0 
+    74 Definicion_z1[a1,a4,f3]
+                                   0                          -0 
+    75 Definicion_z1[a1,a4,f4]
+                                   0                          -0 
+    76 Definicion_z1[a1,a4,f5]
+                                   0                          -0 
+    77 Definicion_z1[a2,a3,f1]
+                                   0                          -0 
+    78 Definicion_z1[a2,a3,f2]
+                                   0                          -0 
+    79 Definicion_z1[a2,a3,f3]
+                                   0                          -0 
+    80 Definicion_z1[a2,a3,f4]
+                                  -1                          -0 
+    81 Definicion_z1[a2,a3,f5]
+                                   0                          -0 
+    82 Definicion_z1[a2,a4,f1]
+                                   0                          -0 
+    83 Definicion_z1[a2,a4,f2]
+                                   0                          -0 
+    84 Definicion_z1[a2,a4,f3]
+                                   0                          -0 
+    85 Definicion_z1[a2,a4,f4]
+                                  -1                          -0 
+    86 Definicion_z1[a2,a4,f5]
+                                   0                          -0 
+    87 Definicion_z1[a3,a4,f1]
+                                   0                          -0 
+    88 Definicion_z1[a3,a4,f2]
+                                   0                          -0 
+    89 Definicion_z1[a3,a4,f3]
+                                   0                          -0 
+    90 Definicion_z1[a3,a4,f4]
+                                   0                          -0 
+    91 Definicion_z1[a3,a4,f5]
+                                  -1                          -0 
+    92 Definicion_z2[a1,a2,f1]
+                                   0                          -0 
+    93 Definicion_z2[a1,a2,f2]
+                                   0                          -0 
+    94 Definicion_z2[a1,a2,f3]
+                                   0                          -0 
+    95 Definicion_z2[a1,a2,f4]
+                                  -1                          -0 
+    96 Definicion_z2[a1,a2,f5]
+                                   0                          -0 
+    97 Definicion_z2[a1,a3,f1]
+                                   0                          -0 
+    98 Definicion_z2[a1,a3,f2]
+                                   0                          -0 
+    99 Definicion_z2[a1,a3,f3]
+                                   0                          -0 
+   100 Definicion_z2[a1,a3,f4]
+                                   0                          -0 
+   101 Definicion_z2[a1,a3,f5]
+                                  -1                          -0 
+   102 Definicion_z2[a1,a4,f1]
+                                   0                          -0 
+   103 Definicion_z2[a1,a4,f2]
+                                   0                          -0 
+   104 Definicion_z2[a1,a4,f3]
+                                   0                          -0 
+   105 Definicion_z2[a1,a4,f4]
+                                   0                          -0 
+   106 Definicion_z2[a1,a4,f5]
+                                   0                          -0 
+   107 Definicion_z2[a2,a3,f1]
+                                   0                          -0 
+   108 Definicion_z2[a2,a3,f2]
+                                   0                          -0 
+   109 Definicion_z2[a2,a3,f3]
+                                   0                          -0 
+   110 Definicion_z2[a2,a3,f4]
+                                   0                          -0 
+   111 Definicion_z2[a2,a3,f5]
+                                  -1                          -0 
+   112 Definicion_z2[a2,a4,f1]
+                                  -1                          -0 
+   113 Definicion_z2[a2,a4,f2]
+                                   0                          -0 
+   114 Definicion_z2[a2,a4,f3]
+                                   0                          -0 
+   115 Definicion_z2[a2,a4,f4]
+                                   0                          -0 
+   116 Definicion_z2[a2,a4,f5]
+                                   0                          -0 
+   117 Definicion_z2[a3,a4,f1]
+                                  -1                          -0 
+   118 Definicion_z2[a3,a4,f2]
+                                   0                          -0 
+   119 Definicion_z2[a3,a4,f3]
+                                   0                          -0 
+   120 Definicion_z2[a3,a4,f4]
+                                   0                          -0 
+   121 Definicion_z2[a3,a4,f5]
+                                   0                          -0 
+   122 Definicion_z3[a1,a2,f1]
+                                  -1            -1               
+   123 Definicion_z3[a1,a2,f2]
+                                   0            -1               
+   124 Definicion_z3[a1,a2,f3]
+                                   0            -1               
+   125 Definicion_z3[a1,a2,f4]
+                                  -1            -1               
+   126 Definicion_z3[a1,a2,f5]
+                                   0            -1               
+   127 Definicion_z3[a1,a3,f1]
+                                  -1            -1               
+   128 Definicion_z3[a1,a3,f2]
+                                   0            -1               
+   129 Definicion_z3[a1,a3,f3]
+                                   0            -1               
+   130 Definicion_z3[a1,a3,f4]
+                                   0            -1               
+   131 Definicion_z3[a1,a3,f5]
+                                  -1            -1               
+   132 Definicion_z3[a1,a4,f1]
+                                  -1            -1               
+   133 Definicion_z3[a1,a4,f2]
+                                   0            -1               
+   134 Definicion_z3[a1,a4,f3]
+                                   0            -1               
+   135 Definicion_z3[a1,a4,f4]
+                                   0            -1               
+   136 Definicion_z3[a1,a4,f5]
+                                   0            -1               
+   137 Definicion_z3[a2,a3,f1]
+                                   0            -1               
+   138 Definicion_z3[a2,a3,f2]
+                                   0            -1               
+   139 Definicion_z3[a2,a3,f3]
+                                   0            -1               
+   140 Definicion_z3[a2,a3,f4]
+                                  -1            -1               
+   141 Definicion_z3[a2,a3,f5]
+                                  -1            -1               
+   142 Definicion_z3[a2,a4,f1]
+                                  -1            -1               
+   143 Definicion_z3[a2,a4,f2]
+                                   0            -1               
+   144 Definicion_z3[a2,a4,f3]
+                                   0            -1               
+   145 Definicion_z3[a2,a4,f4]
+                                  -1            -1               
+   146 Definicion_z3[a2,a4,f5]
+                                   0            -1               
+   147 Definicion_z3[a3,a4,f1]
+                                  -1            -1               
+   148 Definicion_z3[a3,a4,f2]
+                                   0            -1               
+   149 Definicion_z3[a3,a4,f3]
+                                   0            -1               
+   150 Definicion_z3[a3,a4,f4]
+                                   0            -1               
+   151 Definicion_z3[a3,a4,f5]
+                                  -1            -1               
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 x[a1,t1,f1]  *              1             0             1 
+     2 x[a1,t1,f2]  *              0             0             1 
+     3 x[a1,t1,f3]  *              0             0             1 
+     4 x[a1,t1,f4]  *              0             0             1 
+     5 x[a1,t1,f5]  *              0             0             1 
+     6 x[a1,t2,f1]  *              0             0             1 
+     7 x[a1,t2,f2]  *              0             0             1 
+     8 x[a1,t2,f3]  *              0             0             1 
+     9 x[a1,t2,f4]  *              0             0             1 
+    10 x[a1,t2,f5]  *              0             0             1 
+    11 x[a2,t1,f1]  *              0             0             1 
+    12 x[a2,t1,f2]  *              0             0             1 
+    13 x[a2,t1,f3]  *              0             0             1 
+    14 x[a2,t1,f4]  *              1             0             1 
+    15 x[a2,t1,f5]  *              0             0             1 
+    16 x[a2,t2,f1]  *              0             0             1 
+    17 x[a2,t2,f2]  *              0             0             1 
+    18 x[a2,t2,f3]  *              0             0             1 
+    19 x[a2,t2,f4]  *              0             0             1 
+    20 x[a2,t2,f5]  *              0             0             1 
+    21 x[a3,t1,f1]  *              0             0             1 
+    22 x[a3,t1,f2]  *              0             0             1 
+    23 x[a3,t1,f3]  *              0             0             1 
+    24 x[a3,t1,f4]  *              0             0             1 
+    25 x[a3,t1,f5]  *              0             0             1 
+    26 x[a3,t2,f1]  *              0             0             1 
+    27 x[a3,t2,f2]  *              0             0             1 
+    28 x[a3,t2,f3]  *              0             0             1 
+    29 x[a3,t2,f4]  *              0             0             1 
+    30 x[a3,t2,f5]  *              1             0             1 
+    31 x[a4,t1,f1]  *              0             0             1 
+    32 x[a4,t1,f2]  *              0             0             1 
+    33 x[a4,t1,f3]  *              0             0             1 
+    34 x[a4,t1,f4]  *              0             0             1 
+    35 x[a4,t1,f5]  *              0             0             1 
+    36 x[a4,t2,f1]  *              1             0             1 
+    37 x[a4,t2,f2]  *              0             0             1 
+    38 x[a4,t2,f3]  *              0             0             1 
+    39 x[a4,t2,f4]  *              0             0             1 
+    40 x[a4,t2,f5]  *              0             0             1 
+    41 y[a1,a2]     *              0             0             1 
+    42 y[a1,a3]     *              0             0             1 
+    43 y[a1,a4]     *              1             0             1 
+    44 y[a2,a3]     *              0             0             1 
+    45 y[a2,a4]     *              0             0             1 
+    46 y[a3,a4]     *              0             0             1 
+    47 z[a1,a2,f1]  *              0             0             1 
+    48 z[a1,a2,f2]  *              0             0             1 
+    49 z[a1,a2,f3]  *              0             0             1 
+    50 z[a1,a2,f4]  *              0             0             1 
+    51 z[a1,a2,f5]  *              0             0             1 
+    52 z[a1,a3,f1]  *              0             0             1 
+    53 z[a1,a3,f2]  *              0             0             1 
+    54 z[a1,a3,f3]  *              0             0             1 
+    55 z[a1,a3,f4]  *              0             0             1 
+    56 z[a1,a3,f5]  *              0             0             1 
+    57 z[a1,a4,f1]  *              1             0             1 
+    58 z[a1,a4,f2]  *              0             0             1 
+    59 z[a1,a4,f3]  *              0             0             1 
+    60 z[a1,a4,f4]  *              0             0             1 
+    61 z[a1,a4,f5]  *              0             0             1 
+    62 z[a2,a3,f1]  *              0             0             1 
+    63 z[a2,a3,f2]  *              0             0             1 
+    64 z[a2,a3,f3]  *              0             0             1 
+    65 z[a2,a3,f4]  *              0             0             1 
+    66 z[a2,a3,f5]  *              0             0             1 
+    67 z[a2,a4,f1]  *              0             0             1 
+    68 z[a2,a4,f2]  *              0             0             1 
+    69 z[a2,a4,f3]  *              0             0             1 
+    70 z[a2,a4,f4]  *              0             0             1 
+    71 z[a2,a4,f5]  *              0             0             1 
+    72 z[a3,a4,f1]  *              0             0             1 
+    73 z[a3,a4,f2]  *              0             0             1 
+    74 z[a3,a4,f3]  *              0             0             1 
+    75 z[a3,a4,f4]  *              0             0             1 
+    76 z[a3,a4,f5]  *              0             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

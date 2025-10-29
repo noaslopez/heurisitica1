@@ -1,0 +1,18 @@
+set AUTOBUSES := a1 a2;
+
+set TALLERES := t1 t2;
+
+set FRANJAS := f1 f2 f3;
+
+param c : a1 a2 :=
+a1 10.0 5.0
+a2 5.0 20.0
+;
+
+param o : t1 t2 :=
+f1 0.0 0.0
+f2 0.0 0.0
+f3 1.0 0.0
+;
+
+end;

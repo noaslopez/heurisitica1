@@ -232,13 +232,22 @@ Y el siguiente parámetro $o_(i j)$ que define la disponibilidad de una franja $
   ) med med , med med forall i in {1 med , . . . med , med n} med med forall j in {1 med , . . . med , med u}$
 ]
 
-A continuación, definimos las variables de decisión del problema que definen las asignaciones realizadas y la coincidencia de dos autobuses en una misma franja horaria (pero, evidentemente, en talleres diferentes).
+A continuación, definimos las variables de decisión del problema que definen las asignaciones realizadas y la coincidencia de dos autobuses en una misma franja horaria..
 #align(center)[
   $
-  x_(i,j, k) <= cases(
+  x_(i,j,k) <= cases(
     1 quad "si a_i se asigna a s_k de t_j",
     0 quad "en cualquier otro caso"
   ) med med , med med forall i in {1 med , . .  . med , med m} med med forall j in {1 med , . . . med , med u} med med forall k in {1 med , . . . med , med n}$
+]
+
+Tambien definimos la siguiente variable auxiliar que nos servira para calular $y_(i,j)$ para definir el caso en que dos autobuses están asignados a la misma franja pero en talleres diferentes.
+#align(center)[
+  $
+  z_(i,j,k) <= cases(
+    1 quad "si a_i y a_j están asignados a la misma franja s_k",
+    0 quad "en cualquier otro caso"
+  ) med med , med med forall i, j in {1 med , . .  . med , med m} med med forall k in {1 med , . . . med , med n}$
 ]
 
 #align(center)[
@@ -251,9 +260,9 @@ A continuación, definimos las variables de decisión del problema que definen l
 
 Como podemos observar, en este caso las variables de decisión tienen mayor complejidad que en los casos anteriores dado que en este caso la asignación de un autobús a una franja también depende del taller al que pertenece la franja.
 
-Una vez definidas nuestras variables de decisión, definimos las restricciones de nuestro problema como:
+Además, definimos las restricciones de nuestro problema como:
 
-+ #strong[Un autobús solo debe estar asignado a una única franja horaria en un único taller.]
++ #strong[Un autobús debe estar asignado a una única franja horaria en un único taller.] De este modo, forzamos a que todos los autobuses sean asignados. 
 #align(center)[
 $sum_(j = 1)^u sum_(k = 1)^n x_(i j k) = 1$   ,   $$$forall med i med med 1 lt.eq i lt.eq m$
 ]
@@ -279,17 +288,16 @@ $sum_(i = 1)^m x_(i j k) <= 1  ,   $$$$forall med j med : med 1 lt.eq j lt.eq u$
 ]
 #block[
   #set enum(numbering: "1.", start: 4)
-  + La variable $y_(i j)$ determina si #strong[para un par de autobuses ambos tienen asignadas las mismas franjas horarias] (que deben estar en talleres diferentes como se define en la primera restricción. Para ello, su #strong[definición se realizará de manera muy similar a la definición de un AND lógico], en el que acotamos inferiormente el valor de $y_(i j)$ mediante las restricciones 4.1 y 4.2 en los que forzamos a la variable a tomar el valor 0 en caso de que ambas no estén asignadas a la misma franja, y superiormente mediante 4.3 en el caso de que ambas estén asignadas a la misma franja. Por tanto, en el caso de que ambos la tengan asignada , la variable de decisión tomará el valor 1, en cualquier otro caso, la variable tomará el valor 0.
+  + La variable $z_(i j k)$ determina si #strong[para un par de autobuses ambos tienen asignadas la misma franja horaria] (que deben estar en talleres diferentes tal y como se define en la primera restricción. Para ello, su #strong[definición se realizará de manera muy similar a la definición de un AND lógico], en el que acotamos inferiormente el valor de $z_(i j k)$ mediante las restricciones 4.1 y 4.2 en los que forzamos a la variable a tomar el valor 0 en caso de que ambas no estén asignadas a la misma franja, y superiormente mediante 4.3 en el caso de que ambas estén asignadas a la misma franja. Por tanto, en el caso de que ambos la tengan asignada , la variable de decisión tomará el valor 1, en cualquier otro caso, la variable tomará el valor 0.
   #align(center)[
     #block[
       #set enum(numbering: "4.1.", start: 1)
-      + $y_(i t) lt.eq sum_(j = 1)^u x_(i j k)$
-      + $y_(i t) lt.eq sum_(j = 1)^u x_(t j k)$
-      + $y_(i t) gt.eq sum_(j = 1)^u x_(i j k) + sum_(j = 1)^u x_(t j k) - 1$
+      + $z_(i t k) lt.eq sum_(j = 1)^u x_(i j k)$
+      + $z_(i t k) lt.eq sum_(j = 1)^u x_(t j k)$
+      + $z_(i t k) gt.eq sum_(j = 1)^u x_(i j k) + sum_(j = 1)^u x_(t j k) - 1$
     ]
   ]
 ]
-
 #quote(
   block: true,
 )[
@@ -298,19 +306,27 @@ $sum_(i = 1)^m x_(i j k) <= 1  ,   $$$$forall med j med : med 1 lt.eq j lt.eq u$
     $forall i , med t med : 1 lt.eq i < t lt.eq m$ ,, $forall k med : 1 lt.eq k lt.eq n$
   ]
 ]
+#block[
+  #set enum(numbering: "1.", start:5)
+  + Finalmente definimos *$y_(i j)$ que viene dada por la suma de todas las franjas que comparten los autobuses $a_i$ y $a_j$*. Dado el problema, solo puede tomar el valor 1 o 0, pues una franja solo puede tener asignada un autobús y viceversa. De este modo aseguramos que las condiciones se comprueban para cada franja. 
+]
+#align(center)[
+  $y_(i j) eq sum_(k = 1)^n x_(i j k)$
+]
 
 #block[
-  #set enum(numbering: "1.", start: 5)
+  #set enum(numbering: "1.", start: 6)
   + #strong[Todas las variables de decisión definidas deben ser binarias];.
 ]
 #align(center)[
-  $x_(i j k) med , med y_(i j med) in {0 , med 1}$
+  $x_(i j k) med , med z_(i j k) med, med y_(i,j) in {0 , med 1}$
 ]
+
 Dadas las restricciones especificadas, podemos definir nuestra función objetivo de la siguiente forma, que pretende #strong[minimizar el número de clientes afectados por la asignación de la misma franja horaria a los dos autobuses que tienen contratados];:
 #align(center)[
   $m i n med z med = med sum_(i = 1)^m sum_(j = i + 1)^m c_(i j) dot.op med y_(i j)$ $, , med med 1 lt.eq i < j lt.eq m$
 ]
-En el que mediante el sumatorio podemos analizar todos los pares de autobuses de la empresa de transporte sin repeticiones (ya que el segundo sumatorio garantiza que los pares que ya han sido sumados con anterioridad no se vuelvan a tener en cuenta) y, dado que la variable de decisión $y_(i j)$ es binaria y obtiene el valor 1 sólo si dos autobuses tienen asignada la misma franja horaria obtendremos el número total de clientes cuyos autobuses reservados simultáneamente tienen asignada la misma franja horaria para su revisión de averías en el taller.
+En el que mediante el sumatorio podemos analizar todos los pares de autobuses de la empresa de transporte sin repeticiones (ya que el segundo sumatorio garantiza que los pares que ya han sido sumados con anterioridad no se vuelvan a tener en cuenta) y, dado que la variable de decisión $y_(i j)$ es binaria y obtiene el valor 1 sólo si dos autobuses tienen asignada la misma franja horaria, obtendremos el número total de clientes cuyos autobuses reservados simultáneamente tienen asignada la misma franja horaria para su revisión de averías en el taller.
 
 = Análisis de resultados. <análisis-de-resultados.>
 Para analizar los resultados obtenidos, primero relizaremos algunos casos de test que comprueban el correcto funcionamiento de nuestros modelos, también comprobaremos la variación de los modelos con respecto al número de variables y compararemos ambos modelos entre ellos. 

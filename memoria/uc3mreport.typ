@@ -157,7 +157,7 @@
 
   set text(size: 12pt, lang: language)
 
-  set par(leading: 0.65em, spacing: 1em, first-line-indent: 1.8em, justify: true)
+  set par(leading: 0.65em, spacing: 1em, first-line-indent: 0em, justify: true)
 
 
   /* HEADINGS */
