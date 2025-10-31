@@ -39,3 +39,4 @@ s.t. Definicion_z3 {i in AUTOBUSES, t in AUTOBUSES, k in FRANJAS: i < t}:
     z[i,t,k] >= sum{j in TALLERES} x[i,j,k] + sum{j in TALLERES} x[t,j,k] - 1;
 
 end;
+
