@@ -1,0 +1,165 @@
+Problem:    parte
+Rows:       21
+Columns:    100 (100 integer, 100 binary)
+Non-zeros:  300
+Status:     INTEGER OPTIMAL
+Objective:  Total_Cost = 275 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 Total_Cost              -2245                             
+     2 Franja_unica[s1]
+                                   1                           1 
+     3 Franja_unica[s2]
+                                   1                           1 
+     4 Franja_unica[s3]
+                                   1                           1 
+     5 Franja_unica[s4]
+                                   1                           1 
+     6 Franja_unica[s5]
+                                   1                           1 
+     7 Franja_unica[s6]
+                                   1                           1 
+     8 Franja_unica[s7]
+                                   1                           1 
+     9 Franja_unica[s8]
+                                   1                           1 
+    10 Franja_unica[s9]
+                                   1                           1 
+    11 Franja_unica[s10]
+                                   1                           1 
+    12 Autobus_unico[a1]
+                                   1                           1 
+    13 Autobus_unico[a2]
+                                   1                           1 
+    14 Autobus_unico[a3]
+                                   1                           1 
+    15 Autobus_unico[a4]
+                                   1                           1 
+    16 Autobus_unico[a5]
+                                   1                           1 
+    17 Autobus_unico[a6]
+                                   1                           1 
+    18 Autobus_unico[a7]
+                                   1                           1 
+    19 Autobus_unico[a8]
+                                   1                           1 
+    20 Autobus_unico[a9]
+                                   1                           1 
+    21 Autobus_unico[a10]
+                                   1                           1 
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 x[a1,s1]     *              0             0             1 
+     2 x[a1,s2]     *              0             0             1 
+     3 x[a1,s3]     *              1             0             1 
+     4 x[a1,s4]     *              0             0             1 
+     5 x[a1,s5]     *              0             0             1 
+     6 x[a1,s6]     *              0             0             1 
+     7 x[a1,s7]     *              0             0             1 
+     8 x[a1,s8]     *              0             0             1 
+     9 x[a1,s9]     *              0             0             1 
+    10 x[a1,s10]    *              0             0             1 
+    11 x[a2,s1]     *              0             0             1 
+    12 x[a2,s2]     *              0             0             1 
+    13 x[a2,s3]     *              0             0             1 
+    14 x[a2,s4]     *              0             0             1 
+    15 x[a2,s5]     *              0             0             1 
+    16 x[a2,s6]     *              0             0             1 
+    17 x[a2,s7]     *              1             0             1 
+    18 x[a2,s8]     *              0             0             1 
+    19 x[a2,s9]     *              0             0             1 
+    20 x[a2,s10]    *              0             0             1 
+    21 x[a3,s1]     *              0             0             1 
+    22 x[a3,s2]     *              1             0             1 
+    23 x[a3,s3]     *              0             0             1 
+    24 x[a3,s4]     *              0             0             1 
+    25 x[a3,s5]     *              0             0             1 
+    26 x[a3,s6]     *              0             0             1 
+    27 x[a3,s7]     *              0             0             1 
+    28 x[a3,s8]     *              0             0             1 
+    29 x[a3,s9]     *              0             0             1 
+    30 x[a3,s10]    *              0             0             1 
+    31 x[a4,s1]     *              0             0             1 
+    32 x[a4,s2]     *              0             0             1 
+    33 x[a4,s3]     *              0             0             1 
+    34 x[a4,s4]     *              0             0             1 
+    35 x[a4,s5]     *              0             0             1 
+    36 x[a4,s6]     *              0             0             1 
+    37 x[a4,s7]     *              0             0             1 
+    38 x[a4,s8]     *              0             0             1 
+    39 x[a4,s9]     *              0             0             1 
+    40 x[a4,s10]    *              1             0             1 
+    41 x[a5,s1]     *              0             0             1 
+    42 x[a5,s2]     *              0             0             1 
+    43 x[a5,s3]     *              0             0             1 
+    44 x[a5,s4]     *              0             0             1 
+    45 x[a5,s5]     *              1             0             1 
+    46 x[a5,s6]     *              0             0             1 
+    47 x[a5,s7]     *              0             0             1 
+    48 x[a5,s8]     *              0             0             1 
+    49 x[a5,s9]     *              0             0             1 
+    50 x[a5,s10]    *              0             0             1 
+    51 x[a6,s1]     *              0             0             1 
+    52 x[a6,s2]     *              0             0             1 
+    53 x[a6,s3]     *              0             0             1 
+    54 x[a6,s4]     *              0             0             1 
+    55 x[a6,s5]     *              0             0             1 
+    56 x[a6,s6]     *              0             0             1 
+    57 x[a6,s7]     *              0             0             1 
+    58 x[a6,s8]     *              0             0             1 
+    59 x[a6,s9]     *              1             0             1 
+    60 x[a6,s10]    *              0             0             1 
+    61 x[a7,s1]     *              1             0             1 
+    62 x[a7,s2]     *              0             0             1 
+    63 x[a7,s3]     *              0             0             1 
+    64 x[a7,s4]     *              0             0             1 
+    65 x[a7,s5]     *              0             0             1 
+    66 x[a7,s6]     *              0             0             1 
+    67 x[a7,s7]     *              0             0             1 
+    68 x[a7,s8]     *              0             0             1 
+    69 x[a7,s9]     *              0             0             1 
+    70 x[a7,s10]    *              0             0             1 
+    71 x[a8,s1]     *              0             0             1 
+    72 x[a8,s2]     *              0             0             1 
+    73 x[a8,s3]     *              0             0             1 
+    74 x[a8,s4]     *              0             0             1 
+    75 x[a8,s5]     *              0             0             1 
+    76 x[a8,s6]     *              1             0             1 
+    77 x[a8,s7]     *              0             0             1 
+    78 x[a8,s8]     *              0             0             1 
+    79 x[a8,s9]     *              0             0             1 
+    80 x[a8,s10]    *              0             0             1 
+    81 x[a9,s1]     *              0             0             1 
+    82 x[a9,s2]     *              0             0             1 
+    83 x[a9,s3]     *              0             0             1 
+    84 x[a9,s4]     *              0             0             1 
+    85 x[a9,s5]     *              0             0             1 
+    86 x[a9,s6]     *              0             0             1 
+    87 x[a9,s7]     *              0             0             1 
+    88 x[a9,s8]     *              1             0             1 
+    89 x[a9,s9]     *              0             0             1 
+    90 x[a9,s10]    *              0             0             1 
+    91 x[a10,s1]    *              0             0             1 
+    92 x[a10,s2]    *              0             0             1 
+    93 x[a10,s3]    *              0             0             1 
+    94 x[a10,s4]    *              1             0             1 
+    95 x[a10,s5]    *              0             0             1 
+    96 x[a10,s6]    *              0             0             1 
+    97 x[a10,s7]    *              0             0             1 
+    98 x[a10,s8]    *              0             0             1 
+    99 x[a10,s9]    *              0             0             1 
+   100 x[a10,s10]   *              0             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

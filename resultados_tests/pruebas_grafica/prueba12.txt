@@ -1,0 +1,54 @@
+set AUTOBUSES := a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20;
+
+set FRANJAS := s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20;
+
+param Precio := 8.0;
+param Penalizacion := 15.0;
+
+param Distancia :=
+a1 4.0
+a2 9.0
+a3 12.0
+a4 6.0
+a5 15.0
+a6 3.0
+a7 11.0
+a8 7.0
+a9 14.0
+a10 8.0
+a11 5.0
+a12 13.0
+a13 10.0
+a14 2.0
+a15 16.0
+a16 1.0
+a17 18.0
+a18 17.0
+a19 19.0
+a20 20.0
+;
+
+param Pasajeros :=
+a1 32
+a2 28
+a3 45
+a4 22
+a5 38
+a6 18
+a7 42
+a8 25
+a9 35
+a10 30
+a11 20
+a12 48
+a13 26
+a14 15
+a15 40
+a16 12
+a17 33
+a18 29
+a19 44
+a20 36
+;
+
+end;
